@@ -37,11 +37,12 @@ class UI{
 
         row.innerHTML = `  
            <td>${book.title}</td>
-           <td>${book.title}</td>
-           <td>${book.title}</td>
-           <td><a href="#" class="btn btn-danger btn-sm 
+           <td>${book.author}</td>
+           <td>${book.isbn}</td>
+           <td><a href="#" class="btn btn-danger  mr-0 pr-2 btn-sm 
            delete">x</a></td>   
          `;
+         list.appendChild(row);
     }
 
 }
@@ -51,7 +52,7 @@ class UI{
 
 // Event: Display Books
 
-document.addEventListener('DOMContentLoaded',UL.displayBooks);
+document.addEventListener('DOMContentLoaded',UI.displayBooks);
 
 // Event: Add a Book
 
