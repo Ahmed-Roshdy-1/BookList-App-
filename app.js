@@ -45,6 +45,12 @@ class UI{
          list.appendChild(row);
     }
 
+    static crearFiekds(){
+        document.querySelector('#title').value='';
+        document.querySelector('#author').value='';
+        document.querySelector('#isbn').value='';
+    }
+
 }
 
 
@@ -70,8 +76,12 @@ document.querySelector('#book-form').addEventListener('submit',(e)=>{
     // Instatiate book
     const book = new Book(title,author,isbn);
 
+
     // Add Book to UI
     UI.addBookToList(book); 
+
+    // Clear fields
+    UI.crearFiekds();
 });
 
 //Event: Remove a Book
