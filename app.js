@@ -14,9 +14,9 @@ class Book{
 
 class UI{
     static displayBooks(){
-        const StoredBooks = Store.getBooks();
-        const books= StoredBooks;
-        books.forEach((book)=>UI.addBookToList(book));
+        const books = new Book(title,author,isbn);
+        
+       books.foreach((book) => UI.addBookToList(book));
     }
 
     static addBookToList(book){
@@ -56,7 +56,7 @@ class UI{
     }
 
 
-    static crearFiekds(){
+    static crearFields(){
         document.querySelector('#title').value='';
         document.querySelector('#author').value='';
         document.querySelector('#isbn').value='';
@@ -67,37 +67,7 @@ class UI{
 
 // Store Class: Handles Storage
 
-class Store{
-    static getBooks(){
-        let books;
-        if(localStorage.getItem('books')===null){
-            books=[];
-        }else{
-            books=JSON.parse(localStorage.getItem('books'));
-        }
-        return books;
-    }
 
-    static addBook(book){
-        const books = Srore.getBooks();
-        books.push(book);
-        localStorage.setItem('books',JSON.stringify(books));
-    }
-
-    static removeBook(book){
-        const books = Store.getBooks();
-
-        books.forEach((book,index) =>{
-            if(Book.isbn===isbn){
-                books.splice(index,1);
-            }
-        });
-        localStorage.setItem('books',JSON.books);
-
-    }
-
-   
-}
 
 
 
@@ -132,13 +102,13 @@ document.querySelector('#book-form').addEventListener('submit',(e)=>{
         // Add Book to UI
         UI.addBookToList(book); 
 
-        // Add Book to Srore
-        Store.addBook(book);
+        // Add Book to Store
+       
 
         UI.showAlert('Book added ','success');
 
        // Clear fields
-       UI.crearFiekds();
+       UI.crearFields();
 
     }
 
@@ -156,7 +126,7 @@ document.querySelector('#book-list').addEventListener('click',(e)=>
      
 
     // Remove book from Store
-    Store.removeBook(e.target.parentElement.parentElementSibling.textcontent);
+   
 
     UI.showAlert('Book Removed ','success');
 });
