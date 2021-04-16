@@ -14,18 +14,7 @@ class Book{
 
 class UI{
     static displayBooks(){
-        const StoredBooks = [
-           {
-            title: 'Book One',
-            author: 'John Doe',
-            isbn:   '354853'
-           },
-           {
-               title: 'Book Two',
-               author:  'Jane Doe',
-               isbn:   '4515525'
-           }
-        ];
+        const StoredBooks = Store.getBooks();
         const books= StoredBooks;
         books.forEach((book)=>UI.addBookToList(book));
     }
@@ -78,13 +67,13 @@ class UI{
 
 // Store Class: Handles Storage
 
-class Srore{
+class Store{
     static getBooks(){
         let books;
         if(localStorage.getItem('books')===null){
             books=[];
         }else{
-            books=json.parse(localStorage.getItem('books'));
+            books=JSON.parse(localStorage.getItem('books'));
         }
         return books;
     }
@@ -143,6 +132,9 @@ document.querySelector('#book-form').addEventListener('submit',(e)=>{
         // Add Book to UI
         UI.addBookToList(book); 
 
+        // Add Book to Srore
+        Store.addBook(book);
+
         UI.showAlert('Book added ','success');
 
        // Clear fields
@@ -159,6 +151,12 @@ document.querySelector('#book-form').addEventListener('submit',(e)=>{
 
 document.querySelector('#book-list').addEventListener('click',(e)=>
 {
+    // Remove book from UI
     UI.deleteBook(e.target);
+     
+
+    // Remove book from Store
+    Store.removeBook(e.target.parentElement.parentElementSibling.textcontent);
+
     UI.showAlert('Book Removed ','success');
 });
