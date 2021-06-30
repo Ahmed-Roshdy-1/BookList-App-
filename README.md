@@ -1,9 +1,10 @@
 
 # BookList-App-
-## It app simply adds a book(name, author, ISBN) to the list and this app built a full app in JavaScript without and library or JS framework, using classes, local storage, and more.
+## ❇ It app simply adds a book(name, author, ISBN) to the list and this app built a full app in JavaScript 
+
 
 ### app that add the book to your book list 
-### It is an imaginary website to improve my skills in JavaScript,it is really greet .
+### I built this website to improve my skills in JavaScript,it is really greet .
 
 # [Try the website fome here](https://ahmed-roshdy-1.github.io/BookList-App-/Index)
 
